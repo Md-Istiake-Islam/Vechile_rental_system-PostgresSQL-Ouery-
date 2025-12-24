@@ -40,9 +40,9 @@ Each booking **logically connects exactly one user and one vehicle**.
 
 - Here is All Queries with Detailed Explanations
 
-- ============================================
-- Query 1: Bookings with Customer & Vehicle Names
-- ============================================
+
+** Query 1: Bookings with Customer & Vehicle Names
+
 -SELECT 
   -b.booking_id,
   -u.name AS customer_name,
@@ -60,9 +60,9 @@ Each booking **logically connects exactly one user and one vehicle**.
 - 3. 'v.name AS vehicle_name' retrieves the vehicle's name from the vehicles table by matching b.vehicle_id = v.vehicle_id.
 - Purpose: Instead of showing only IDs, this query provides meaningful names for reporting or display.
 
-- ============================================
-- Query 2: Vehicles Never Booked
-- ============================================
+
+** Query 2: Vehicles Never Booked
+
 -SELECT
   -v.vehicle_id,
   -v.name AS vehicle_name
@@ -79,9 +79,9 @@ Each booking **logically connects exactly one user and one vehicle**.
 - 2. 'NOT EXISTS' ensures that only vehicles with no corresponding booking are returned.
 - Purpose: Useful for finding unused vehicles or vehicles that may need promotion or maintenance.
 
-- ============================================
-- Query 3: Available Vehicles of a Specific Type
-- ============================================
+
+** Query 3: Available Vehicles of a Specific Type
+
 -SELECT
   -vehicle_id,
   -name AS vehicle_name,
@@ -97,9 +97,9 @@ Each booking **logically connects exactly one user and one vehicle**.
 - 2. 'vehicle_type = car' further filters for a specific category.
 - Purpose: Allows customers or staff to find vehicles of a specific type that are currently available for rental.
 
-- ============================================
-- Query 4: Vehicles with More Than 2 Bookings
-- ============================================
+
+** Query 4: Vehicles with More Than 2 Bookings
+
 -SELECT
   -v.vehicle_id,
   -v.name AS vehicle_name,
