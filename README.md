@@ -40,9 +40,9 @@ Each booking **logically connects exactly one user and one vehicle**.
 
 --- Here is All Queries with Detailed Explanations
 
--- ============================================
--- Query 1: Bookings with Customer & Vehicle Names
--- ============================================
+- ============================================
+- Query 1: Bookings with Customer & Vehicle Names
+- ============================================
 SELECT 
   b.booking_id,
   u.name AS customer_name,
@@ -53,12 +53,12 @@ INNER JOIN users u
 INNER JOIN vehicles v
   ON b.vehicle_id = v.vehicle_id;
 
--- Explanation:
--- This query retrieves all bookings with readable information about the customer and vehicle.
--- 1. 'b.booking_id' comes from the bookings table to identify each booking.
--- 2. 'u.name AS customer_name' retrieves the customer's name from the users table by matching b.user_id = u.user_id.
--- 3. 'v.name AS vehicle_name' retrieves the vehicle's name from the vehicles table by matching b.vehicle_id = v.vehicle_id.
--- Purpose: Instead of showing only IDs, this query provides meaningful names for reporting or display.
+- Explanation:
+- This query retrieves all bookings with readable information about the customer and vehicle.
+- 1. 'b.booking_id' comes from the bookings table to identify each booking.
+- 2. 'u.name AS customer_name' retrieves the customer's name from the users table by matching b.user_id = u.user_id.
+- 3. 'v.name AS vehicle_name' retrieves the vehicle's name from the vehicles table by matching b.vehicle_id = v.vehicle_id.
+- Purpose: Instead of showing only IDs, this query provides meaningful names for reporting or display.
 
 -- ============================================
 -- Query 2: Vehicles Never Booked
