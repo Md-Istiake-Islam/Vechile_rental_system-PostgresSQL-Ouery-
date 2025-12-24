@@ -43,17 +43,17 @@ Each booking **logically connects exactly one user and one vehicle**.
 
 **Query 1: Bookings with Customer & Vehicle Names**
 
--SELECT 
-  -b.booking_id,
-  -u.name AS customer_name,
-  -v.name AS vehicle_name
--FROM bookings b
--INNER JOIN users u
-  -ON b.user_id = u.user_id
--INNER JOIN vehicles v
-  -ON b.vehicle_id = v.vehicle_id;
+- SELECT 
+  - b.booking_id,
+  - u.name AS customer_name,
+  - v.name AS vehicle_name
+- FROM bookings b
+- INNER JOIN users u
+  - ON b.user_id = u.user_id
+- INNER JOIN vehicles v
+  - ON b.vehicle_id = v.vehicle_id;
 
-- Explanation:
+**Explanation:**
 - This query retrieves all bookings with readable information about the customer and vehicle.
 - 1. 'b.booking_id' comes from the bookings table to identify each booking.
 - 2. 'u.name AS customer_name' retrieves the customer's name from the users table by matching b.user_id = u.user_id.
@@ -61,37 +61,37 @@ Each booking **logically connects exactly one user and one vehicle**.
 - Purpose: Instead of showing only IDs, this query provides meaningful names for reporting or display.
 
 
-** Query 2: Vehicles Never Booked
+**Query 2: Vehicles Never Booked
 
--SELECT
-  -v.vehicle_id,
-  -v.name AS vehicle_name
--FROM vehicles v
--WHERE NOT EXISTS (
-  -SELECT 1
-  -FROM bookings b
-  -WHERE b.vehicle_id = v.vehicle_id
--);
+- SELECT
+  - v.vehicle_id,
+  - v.name AS vehicle_name
+- FROM vehicles v
+- WHERE NOT EXISTS (
+  - SELECT 1
+  - FROM bookings b
+  - WHERE b.vehicle_id = v.vehicle_id
+- );
 
-- Explanation:
+**Explanation:**
 - This query identifies vehicles that have never been booked.
 - 1. The subquery checks the bookings table for any booking with the current vehicle_id.
 - 2. 'NOT EXISTS' ensures that only vehicles with no corresponding booking are returned.
 - Purpose: Useful for finding unused vehicles or vehicles that may need promotion or maintenance.
 
 
-** Query 3: Available Vehicles of a Specific Type
+**Query 3: Available Vehicles of a Specific Type
 
--SELECT
-  -vehicle_id,
-  -name AS vehicle_name,
-  -vehicle_type,
-  -rental_price
--FROM vehicles
--WHERE availability_status = 'available'
-  -AND vehicle_type = 'car';
+- SELECT
+  - vehicle_id,
+  - name AS vehicle_name,
+  - vehicle_type,
+  - rental_price
+- FROM vehicles
+- WHERE availability_status = 'available'
+  - AND vehicle_type = 'car';
 
-- Explanation:
+**Explanation:**
 - This query filters vehicles based on availability and type.
 - 1. 'availability_status = available' ensures that only vehicles ready for rent are included.
 - 2. 'vehicle_type = car' further filters for a specific category.
@@ -100,20 +100,20 @@ Each booking **logically connects exactly one user and one vehicle**.
 
 ** Query 4: Vehicles with More Than 2 Bookings
 
--SELECT
-  -v.vehicle_id,
-  -v.name AS vehicle_name,
-  -COUNT(b.booking_id) AS total_bookings
--FROM vehicles v
--LEFT JOIN bookings b
-  -ON v.vehicle_id = b.vehicle_id
--GROUP BY
-  -v.vehicle_id,
-  -v.name
+- SELECT
+  - v.vehicle_id,
+  - v.name AS vehicle_name,
+  - COUNT(b.booking_id) AS total_bookings
+- FROM vehicles v
+- LEFT JOIN bookings b
+  - ON v.vehicle_id = b.vehicle_id
+- GROUP BY
+  - v.vehicle_id,
+  - v.name
 -HAVING
   -COUNT(b.booking_id) > 2;
 
-- Explanation:
+**Explanation:**
 - This query identifies vehicles that have been booked more than twice.
 - 1. 'LEFT JOIN' ensures that all vehicles are included, even if they have zero bookings.
 - 2. 'COUNT(b.booking_id)' counts how many bookings each vehicle has.
