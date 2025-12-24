@@ -41,7 +41,7 @@ Each booking **logically connects exactly one user and one vehicle**.
 - Here is All Queries with Detailed Explanations
 
 
-** Query 1: Bookings with Customer & Vehicle Names**
+**Query 1: Bookings with Customer & Vehicle Names**
 
 -SELECT 
   -b.booking_id,
