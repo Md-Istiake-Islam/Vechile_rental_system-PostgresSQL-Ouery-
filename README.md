@@ -61,7 +61,7 @@ Each booking **logically connects exactly one user and one vehicle**.
 - Purpose: Instead of showing only IDs, this query provides meaningful names for reporting or display.
 
 
-**Query 2: Vehicles Never Booked
+**Query 2: Vehicles Never Booked**
 
 - SELECT
   - v.vehicle_id,
@@ -80,7 +80,7 @@ Each booking **logically connects exactly one user and one vehicle**.
 - Purpose: Useful for finding unused vehicles or vehicles that may need promotion or maintenance.
 
 
-**Query 3: Available Vehicles of a Specific Type
+**Query 3: Available Vehicles of a Specific Type**
 
 - SELECT
   - vehicle_id,
@@ -98,7 +98,7 @@ Each booking **logically connects exactly one user and one vehicle**.
 - Purpose: Allows customers or staff to find vehicles of a specific type that are currently available for rental.
 
 
-** Query 4: Vehicles with More Than 2 Bookings
+**Query 4: Vehicles with More Than 2 Bookings**
 
 - SELECT
   - v.vehicle_id,
